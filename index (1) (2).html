@@ -1,0 +1,1533 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mahmudullah Mridul | Aspiring Software Engineer &amp; Islamic Nasheed Singer</title>
+    <meta
+      name="description"
+      content="Personal portfolio of Mahmudullah Mridul — Computer Science & Technology (CST) student at Chattogram Govt Polytechnic Institute, Aspiring Software Engineer, and National-level Islamic Nasheed Singer."
+    />
+    <meta property="og:title" content="Mahmudullah Mridul | Aspiring Software Engineer &amp; Islamic Nasheed Singer" />
+    <meta
+      property="og:description"
+      content="Personal portfolio of Mahmudullah Mridul — CST student at Chattogram Govt Polytechnic Institute, Aspiring Software Engineer, and Islamic Nasheed Singer."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-canvas: #0a0f0d;
+        --bg-surface: #101815;
+        --bg-surface-elevated: #141f1a;
+        --border-subtle: rgba(255, 255, 255, 0.08);
+        --border-accent: rgba(0, 255, 136, 0.28);
+        --text-primary: #eef5f1;
+        --text-secondary: #a2b5ac;
+        --text-muted: #70857b;
+        --accent: #00ff88;
+        --accent-soft: rgba(0, 255, 136, 0.12);
+        --accent-glow: rgba(0, 255, 136, 0.24);
+        --danger: #ff6b6b;
+        --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+        --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+        --radius-card: 16px;
+        --radius-control: 10px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        background-color: var(--bg-canvas);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background-color: var(--bg-canvas);
+        background-image:
+          radial-gradient(circle at 18% 12%, rgba(0, 255, 136, 0.055), transparent 42%),
+          radial-gradient(circle at 82% 70%, rgba(0, 255, 136, 0.035), transparent 46%),
+          linear-gradient(rgba(0, 255, 136, 0.025) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 255, 136, 0.025) 1px, transparent 1px);
+        background-size: 100% 100%, 100% 100%, 56px 56px, 56px 56px;
+        background-position: 0 0, 0 0, -1px -1px, -1px -1px;
+        color: var(--text-primary);
+        line-height: 1.65;
+        overflow-x: hidden;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button,
+      input,
+      textarea {
+        font-family: inherit;
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1180px;
+        margin-inline: auto;
+        padding-inline: 24px;
+      }
+
+      /* Top Bar Contract: 3 zones separated by gap */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        background-color: rgba(10, 15, 13, 0.88);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border-subtle);
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 32px;
+        min-height: 68px;
+      }
+
+      .brand-wordmark {
+        font-size: 1.05rem;
+        font-weight: 600;
+        letter-spacing: -0.015em;
+        color: var(--text-primary);
+        white-space: nowrap;
+        flex-shrink: 0;
+        transition: color 180ms var(--ease-out-expo);
+      }
+
+      .brand-wordmark:hover {
+        color: var(--accent);
+      }
+
+      .desktop-nav {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+      }
+
+      .nav-link {
+        position: relative;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        white-space: nowrap;
+        flex-shrink: 0;
+        padding-block: 6px;
+        transition: color 180ms var(--ease-out-expo);
+      }
+
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2px;
+        background-color: var(--accent);
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform 200ms var(--ease-out-expo);
+      }
+
+      .nav-link:hover,
+      .nav-link[aria-current='true'] {
+        color: var(--text-primary);
+      }
+
+      .nav-link:hover::after,
+      .nav-link[aria-current='true']::after {
+        transform: scaleX(1);
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-shrink: 0;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 44px;
+        padding: 10px 22px;
+        border-radius: var(--radius-control);
+        font-size: 0.9rem;
+        font-weight: 600;
+        white-space: nowrap;
+        flex-shrink: 0;
+        cursor: pointer;
+        border: 1px solid transparent;
+        transition:
+          transform 180ms var(--ease-out-expo),
+          background-color 180ms var(--ease-out-expo),
+          border-color 180ms var(--ease-out-expo),
+          color 180ms var(--ease-out-expo),
+          box-shadow 180ms var(--ease-out-expo);
+      }
+
+      .btn:active {
+        transform: translateY(1px);
+      }
+
+      .btn-primary {
+        background-color: var(--accent);
+        color: #07110c;
+        border-color: var(--accent);
+      }
+
+      .btn-primary:hover {
+        background-color: #2eff9d;
+        border-color: #2eff9d;
+        box-shadow: 0 8px 24px rgba(0, 255, 136, 0.22);
+      }
+
+      .btn-secondary {
+        background-color: var(--bg-surface);
+        color: var(--text-primary);
+        border-color: var(--border-accent);
+      }
+
+      .btn-secondary:hover {
+        background-color: var(--bg-surface-elevated);
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      .btn-sm {
+        min-height: 40px;
+        padding: 8px 18px;
+        font-size: 0.85rem;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        border-radius: var(--radius-control);
+        background-color: var(--bg-surface);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-primary);
+        cursor: pointer;
+      }
+
+      .mobile-drawer {
+        display: none;
+        border-top: 1px solid var(--border-subtle);
+        background-color: var(--bg-surface);
+        padding: 16px 24px 20px;
+      }
+
+      .mobile-drawer.is-open {
+        display: block;
+      }
+
+      .mobile-nav-list {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin: 0 0 14px;
+        padding: 0;
+        list-style: none;
+      }
+
+      .mobile-nav-link {
+        display: flex;
+        align-items: center;
+        min-height: 44px;
+        padding-inline: 10px;
+        border-radius: 8px;
+        color: var(--text-secondary);
+        font-weight: 500;
+      }
+
+      .mobile-nav-link:hover {
+        background-color: var(--bg-surface-elevated);
+        color: var(--accent);
+      }
+
+      /* Sections */
+      section {
+        padding-block: 84px;
+        scroll-margin-top: 76px;
+      }
+
+      .section-divider {
+        border-top: 1px solid var(--border-subtle);
+      }
+
+      .section-header {
+        margin-bottom: 40px;
+        max-width: 680px;
+      }
+
+      .section-kicker {
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        font-weight: 500;
+        color: var(--accent);
+        letter-spacing: 0.02em;
+        margin: 0 0 8px;
+      }
+
+      .section-title {
+        font-size: clamp(1.65rem, 2.8vw, 2.25rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+        margin: 0 0 12px;
+        text-wrap: balance;
+      }
+
+      .section-subtitle {
+        font-size: 0.98rem;
+        color: var(--text-secondary);
+        margin: 0;
+      }
+
+      /* Hero */
+      .hero-section {
+        padding-block: 76px 88px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.45fr) minmax(0, 0.8fr);
+        align-items: center;
+        gap: 44px;
+      }
+
+      .hero-meta {
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        margin: 0 0 14px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .hero-meta-accent {
+        color: var(--accent);
+      }
+
+      .hero-name {
+        font-size: clamp(2.15rem, 3.65vw, 3.5rem);
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+        margin: 0 0 18px;
+        text-wrap: balance;
+      }
+
+      .typing-line {
+        display: flex;
+        align-items: center;
+        min-height: 2.1rem;
+        font-family: var(--font-mono);
+        font-size: clamp(1.05rem, 2vw, 1.38rem);
+        font-weight: 500;
+        color: var(--accent);
+        margin: 0 0 22px;
+      }
+
+      .typing-prompt {
+        color: var(--text-muted);
+        margin-right: 10px;
+        user-select: none;
+      }
+
+      .typing-cursor {
+        display: inline-block;
+        width: 2px;
+        height: 1.2em;
+        margin-left: 5px;
+        background-color: var(--accent);
+        animation: blink 0.9s step-end infinite;
+      }
+
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+
+      .hero-summary {
+        font-size: 1.02rem;
+        color: var(--text-secondary);
+        max-width: 58ch;
+        margin: 0 0 32px;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .hero-portrait-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .portrait-frame {
+        position: relative;
+        width: clamp(240px, 26vw, 330px);
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        padding: 8px;
+        background: radial-gradient(circle at 30% 30%, rgba(0, 255, 136, 0.22), rgba(0, 255, 136, 0.04));
+        border: 2px solid var(--accent);
+        box-shadow:
+          0 0 36px var(--accent-glow),
+          inset 0 0 24px rgba(0, 255, 136, 0.14);
+      }
+
+      .portrait-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        background-color: #13201a;
+        border: 1px solid rgba(0, 255, 136, 0.35);
+      }
+
+      .portrait-inner::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        box-shadow: inset 0 0 26px rgba(10, 15, 13, 0.28);
+        pointer-events: none;
+      }
+
+      .portrait-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 15%;
+        display: block;
+      }
+
+      .portrait-fallback {
+        position: absolute;
+        inset: 0;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(145deg, #101b16, #0a0f0d);
+        color: var(--accent);
+        font-family: var(--font-mono);
+        font-size: 2rem;
+        font-weight: 700;
+      }
+
+      .portrait-inner.is-fallback .portrait-img {
+        display: none;
+      }
+
+      .portrait-inner.is-fallback .portrait-fallback {
+        display: flex;
+      }
+
+      /* Proof strip below hero split */
+      .hero-facts {
+        margin-top: 56px;
+        padding-top: 28px;
+        border-top: 1px solid var(--border-subtle);
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .fact-item {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .fact-label {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        color: var(--text-muted);
+      }
+
+      .fact-value {
+        font-size: 0.96rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        font-variant-numeric: tabular-nums;
+      }
+
+      /* About Section */
+      .about-panel {
+        background-color: var(--bg-surface);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-card);
+        padding: 36px;
+        display: grid;
+        grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+        gap: 36px;
+        align-items: start;
+      }
+
+      .about-lines {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .about-lines p {
+        margin: 0;
+        font-size: 1.03rem;
+        color: var(--text-secondary);
+        line-height: 1.7;
+      }
+
+      .about-lines p strong {
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+
+      .about-details {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding-left: 28px;
+        border-left: 1px solid var(--border-subtle);
+      }
+
+      .detail-row {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .detail-key {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        color: var(--accent);
+      }
+
+      .detail-val {
+        font-size: 0.94rem;
+        color: var(--text-primary);
+      }
+
+      /* Cards & Grids */
+      .grid-2 {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .surface-card {
+        background-color: var(--bg-surface);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-card);
+        padding: 28px;
+        display: flex;
+        flex-direction: column;
+        transition:
+          transform 200ms var(--ease-out-expo),
+          border-color 200ms var(--ease-out-expo),
+          background-color 200ms var(--ease-out-expo);
+      }
+
+      .surface-card:hover {
+        transform: translateY(-3px);
+        border-color: var(--border-accent);
+        background-color: var(--bg-surface-elevated);
+      }
+
+      .card-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+        background-color: var(--accent-soft);
+        border: 1px solid rgba(0, 255, 136, 0.22);
+        color: var(--accent);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 18px;
+        flex-shrink: 0;
+      }
+
+      .card-kicker {
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        margin: 0 0 8px;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .card-title {
+        font-size: 1.22rem;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        margin: 0 0 12px;
+        color: var(--text-primary);
+      }
+
+      .card-body {
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+        margin: 0 0 20px;
+        flex-grow: 1;
+      }
+
+      .card-meta-line {
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        color: var(--accent);
+        padding-top: 14px;
+        border-top: 1px solid var(--border-subtle);
+        margin: 0;
+        font-variant-numeric: tabular-nums;
+      }
+
+      /* Achievements highlight */
+      .award-card-featured {
+        border-color: rgba(0, 255, 136, 0.34);
+        background: linear-gradient(180deg, rgba(0, 255, 136, 0.06) 0%, var(--bg-surface) 100%);
+      }
+
+      .award-rank {
+        font-family: var(--font-mono);
+        font-size: 0.84rem;
+        font-weight: 600;
+        color: var(--accent);
+        margin: 0 0 6px;
+        font-variant-numeric: tabular-nums;
+      }
+
+      /* Skills */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px 32px;
+        background-color: var(--bg-surface);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-card);
+        padding: 32px;
+      }
+
+      .skill-row {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .skill-row:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+      }
+
+      .skill-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .skill-name {
+        font-size: 0.98rem;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .skill-percent {
+        font-family: var(--font-mono);
+        font-size: 0.86rem;
+        font-weight: 600;
+        color: var(--accent);
+        font-variant-numeric: tabular-nums;
+      }
+
+      .skill-track {
+        height: 9px;
+        width: 100%;
+        border-radius: 999px;
+        background-color: rgba(255, 255, 255, 0.07);
+        overflow: hidden;
+      }
+
+      .skill-fill {
+        height: 100%;
+        width: 100%;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #00c46a, #00ff88);
+        transform-origin: left center;
+        transform: scaleX(var(--target-scale, 0));
+        transition: transform 700ms var(--ease-out-expo);
+      }
+
+      .skill-fill.is-animated {
+        transform: scaleX(var(--skill-ratio));
+      }
+
+      /* Contact Section */
+      .contact-info-card {
+        background-color: var(--bg-surface);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-card);
+        padding: 32px;
+      }
+
+      .contact-methods {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+        margin-top: 24px;
+        padding-top: 24px;
+        border-top: 1px solid var(--border-subtle);
+      }
+
+      .contact-method {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .contact-label {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        color: var(--text-muted);
+      }
+
+      .contact-link {
+        font-size: 0.96rem;
+        font-weight: 500;
+        color: var(--text-primary);
+        word-break: break-word;
+        transition: color 180ms var(--ease-out-expo);
+      }
+
+      .contact-link:hover {
+        color: var(--accent);
+      }
+
+      .copy-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .copy-btn {
+        min-height: 36px;
+        padding: 6px 12px;
+        border-radius: 8px;
+        border: 1px solid var(--border-accent);
+        background-color: var(--bg-surface-elevated);
+        color: var(--accent);
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        cursor: pointer;
+        transition: background-color 180ms var(--ease-out-expo);
+      }
+
+      .copy-btn:hover {
+        background-color: var(--accent-soft);
+      }
+
+      /* Footer */
+      .site-footer {
+        border-top: 1px solid var(--border-subtle);
+        padding-block: 32px;
+      }
+
+      .footer-inner {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        font-size: 0.88rem;
+        color: var(--text-muted);
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .footer-links a:hover {
+        color: var(--accent);
+      }
+
+      /* Subtle scroll reveal */
+      .reveal {
+        opacity: 1;
+        transform: translateY(0);
+        transition:
+          opacity 480ms var(--ease-out-expo),
+          transform 480ms var(--ease-out-expo);
+      }
+
+      .reveal-ready .reveal:not(.is-visible) {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+
+      /* Responsive */
+      @media (max-width: 960px) {
+        .hero-grid,
+        .about-panel,
+        .contact-methods {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-portrait-wrap {
+          order: -1;
+        }
+
+        .about-details {
+          padding-left: 0;
+          padding-top: 22px;
+          border-left: 0;
+          border-top: 1px solid var(--border-subtle);
+        }
+
+        .grid-3 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 768px) {
+        .desktop-nav,
+        .header-cta {
+          display: none;
+        }
+
+        .mobile-menu-btn {
+          display: inline-flex;
+        }
+
+        section {
+          padding-block: 60px;
+        }
+
+        .hero-section {
+          padding-block: 44px 60px;
+        }
+
+        .hero-facts,
+        .grid-2,
+        .grid-3,
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .about-panel,
+        .contact-info-card,
+        .skills-grid {
+          padding: 24px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .typing-cursor {
+          animation: none;
+        }
+
+        .reveal,
+        .skill-fill,
+        .surface-card,
+        .btn {
+          transition: none !important;
+        }
+
+        .skill-fill {
+          transform: scaleX(var(--skill-ratio));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <!-- Zone 1: Single-line Brand Wordmark -->
+        <a href="#top" class="brand-wordmark">Mahmudullah Mridul</a>
+
+        <!-- Zone 2: Concise single-line navigation links -->
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#journey" class="nav-link">Journey</a>
+          <a href="#education" class="nav-link">Education</a>
+          <a href="#achievements" class="nav-link">Achievements</a>
+          <a href="#skills" class="nav-link">Skills</a>
+        </nav>
+
+        <!-- Zone 3: 1 primary action + mobile menu trigger -->
+        <div class="header-actions">
+          <a href="#contact" class="btn btn-primary btn-sm header-cta">Contact Me</a>
+          <button
+            type="button"
+            id="mobile-menu-toggle"
+            class="mobile-menu-btn"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            aria-controls="mobile-drawer"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
+        <ul class="mobile-nav-list">
+          <li><a href="#about" class="mobile-nav-link">About</a></li>
+          <li><a href="#journey" class="mobile-nav-link">Journey</a></li>
+          <li><a href="#education" class="mobile-nav-link">Education</a></li>
+          <li><a href="#achievements" class="mobile-nav-link">Achievements</a></li>
+          <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+        </ul>
+        <a href="#contact" class="btn btn-primary" style="width: 100%;">Contact Me</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- 1. Hero Section -->
+      <section class="hero-section" aria-labelledby="hero-heading">
+        <div class="container">
+          <div class="hero-grid">
+            <div>
+              <p class="hero-meta">
+                <span class="hero-meta-accent">Chattogram Govt Polytechnic Institute</span>
+                <span aria-hidden="true">·</span>
+                <span>CST</span>
+              </p>
+              <h1 id="hero-heading" class="hero-name">Mahmudullah Mridul</h1>
+              <p class="typing-line" aria-live="polite">
+                <span class="typing-prompt" aria-hidden="true">$</span>
+                <span id="typing-text">Aspiring Software Engineer</span>
+                <span class="typing-cursor" aria-hidden="true"></span>
+              </p>
+              <p class="hero-summary">
+                Computer Science &amp; Technology student building strong foundations in web and software engineering while expressing faith and discipline through Islamic Nasheed performance.
+              </p>
+              <div class="hero-actions">
+                <a href="#achievements" class="btn btn-primary">View Achievements</a>
+                <a href="#contact" class="btn btn-secondary">Contact Me</a>
+              </div>
+            </div>
+
+            <div class="hero-portrait-wrap">
+              <div class="portrait-frame">
+                <div class="portrait-inner" id="portrait-container">
+                  <img
+                    src="/assets/aistudio/Formal_White-Background_Portrait_f1f4c245.png"
+                    alt="Portrait of Mahmudullah Mridul"
+                    class="portrait-img"
+                    referrerpolicy="no-referrer"
+                    onerror="document.getElementById('portrait-container').classList.add('is-fallback')"
+                  />
+                  <div class="portrait-fallback" aria-hidden="true">MM</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-facts" aria-label="Profile highlights">
+            <div class="fact-item">
+              <span class="fact-label">Academic Track</span>
+              <span class="fact-value">Computer Science &amp; Technology (CST)</span>
+            </div>
+            <div class="fact-item">
+              <span class="fact-label">National Recognition</span>
+              <span class="fact-value">Runner Up (2nd) · Islamic Foundation 2026</span>
+            </div>
+            <div class="fact-item">
+              <span class="fact-label">Core Focus</span>
+              <span class="fact-value">Software Engineering &amp; Islamic Nasheed</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. About Me -->
+      <section id="about" class="section-divider reveal" aria-labelledby="about-heading">
+        <div class="container">
+          <div class="section-header">
+            <p class="section-kicker">01. Introduction</p>
+            <h2 id="about-heading" class="section-title">About Me</h2>
+          </div>
+
+          <div class="about-panel">
+            <div class="about-lines">
+              <p>
+                He is a <strong>CST student at Chattogram Govt Polytechnic Institute</strong> building a disciplined academic base in computer science.
+              </p>
+              <p>
+                He wants to become a <strong>Software Engineer</strong> who writes clean, reliable, and purposeful software for real-world users.
+              </p>
+              <p>
+                He is also deeply passionate about <strong>technology and Islamic music</strong>, balancing technical problem-solving with vocal artistry.
+              </p>
+            </div>
+
+            <div class="about-details">
+              <div class="detail-row">
+                <span class="detail-key">Institute</span>
+                <span class="detail-val">Chattogram Govt Polytechnic Institute</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-key">Department</span>
+                <span class="detail-val">Computer Science &amp; Technology (CST)</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-key">Primary Roles</span>
+                <span class="detail-val">Aspiring Software Engineer · Islamic Nasheed Singer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. My Dual Journey -->
+      <section id="journey" class="section-divider reveal" aria-labelledby="journey-heading">
+        <div class="container">
+          <div class="section-header">
+            <p class="section-kicker">02. Dual Path</p>
+            <h2 id="journey-heading" class="section-title">My Dual Journey</h2>
+            <p class="section-subtitle">
+              Two complementary disciplines shaping how I think, build, and communicate.
+            </p>
+          </div>
+
+          <div class="grid-2">
+            <article class="surface-card">
+              <div class="card-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+              <p class="card-kicker">Track 01 · Engineering</p>
+              <h3 class="card-title">Tech Journey</h3>
+              <p class="card-body">
+                Learning HTML, CSS, JavaScript, and Python while strengthening core programming fundamentals in C. Focused on clean semantic markup, responsive interfaces, and problem-solving logic.
+              </p>
+              <p class="card-meta-line">HTML · CSS · JavaScript · Python</p>
+            </article>
+
+            <article class="surface-card">
+              <div class="card-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 18V5l12-2v13"></path>
+                  <circle cx="6" cy="18" r="3"></circle>
+                  <circle cx="18" cy="16" r="3"></circle>
+                </svg>
+              </div>
+              <p class="card-kicker">Track 02 · Vocal Artistry</p>
+              <h3 class="card-title">Music Journey</h3>
+              <p class="card-body">
+                Dedicated to Islamic Nasheed singing with years of vocal practice, stage discipline, and competitive performances across district, divisional, and national stages in Bangladesh.
+              </p>
+              <p class="card-meta-line">Islamic Nasheed · Live Performance · National Finalist</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Education -->
+      <section id="education" class="section-divider reveal" aria-labelledby="education-heading">
+        <div class="container">
+          <div class="section-header">
+            <p class="section-kicker">03. Academic Path</p>
+            <h2 id="education-heading" class="section-title">Education</h2>
+            <p class="section-subtitle">
+              Academic milestones from primary schooling to polytechnic engineering studies.
+            </p>
+          </div>
+
+          <div class="grid-3">
+            <article class="surface-card">
+              <div class="card-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
+                </svg>
+              </div>
+              <p class="card-kicker">Primary School</p>
+              <h3 class="card-title">Charkamalia Namapara Govt. Primary School</h3>
+              <p class="card-body">
+                Completed foundational primary education, building early discipline, reading habits, and interest in reciting and Islamic song.
+              </p>
+              <p class="card-meta-line">Primary Education · Foundation</p>
+            </article>
+
+            <article class="surface-card">
+              <div class="card-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                  <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                </svg>
+              </div>
+              <p class="card-kicker">High School</p>
+              <h3 class="card-title">Kishoreganj Govt. Boys' High School</h3>
+              <p class="card-body">
+                Completed secondary schooling with active participation in district and divisional Islamic Song competitions alongside academics.
+              </p>
+              <p class="card-meta-line">Secondary Education · Kishoreganj</p>
+            </article>
+
+            <article class="surface-card award-card-featured">
+              <div class="card-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="14" rx="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="18" x2="12" y2="21"></line>
+                </svg>
+              </div>
+              <p class="award-rank">Currently Studying</p>
+              <h3 class="card-title">Chattogram Govt Polytechnic Institute</h3>
+              <p class="card-body">
+                Currently pursuing a diploma in the Department of Computer Science &amp; Technology (CST), preparing for a career in software engineering.
+              </p>
+              <p class="card-meta-line">Dept. of CST · Chattogram</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Achievements -->
+      <section id="achievements" class="section-divider reveal" aria-labelledby="achievements-heading">
+        <div class="container">
+          <div class="section-header">
+            <p class="section-kicker">04. Recognition</p>
+            <h2 id="achievements-heading" class="section-title">Achievements</h2>
+            <p class="section-subtitle">
+              Recognized across district, divisional, and national Islamic Song competitions.
+            </p>
+          </div>
+
+          <div class="grid-3">
+            <article class="surface-card award-card-featured">
+              <div class="card-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                  <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                  <path d="M4 22h16"></path>
+                  <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+                  <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+                  <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+                </svg>
+              </div>
+              <p class="award-rank">Runner Up (2nd Place) · 2026</p>
+              <h3 class="card-title">National Level, Islamic Foundation Bangladesh</h3>
+              <p class="card-body">
+                Achieved 2nd Place nationwide at the Islamic Song Competition 2026 organized by Islamic Foundation Bangladesh.
+              </p>
+              <p class="card-meta-line">National Level · Islamic Song Competition 2026</p>
+            </article>
+
+            <article class="surface-card">
+              <div class="card-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                  <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                  <path d="M4 22h16"></path>
+                  <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+                  <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+                  <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+                </svg>
+              </div>
+              <p class="award-rank">1st Place Champion</p>
+              <h3 class="card-title">Divisional Level, Islamic Song</h3>
+              <p class="card-body">
+                Secured First Place at the Divisional Level Islamic Song Competition, qualifying to represent the division on the national stage.
+              </p>
+              <p class="card-meta-line">Divisional Level · Islamic Song</p>
+            </article>
+
+            <article class="surface-card">
+              <div class="card-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                  <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                  <path d="M4 22h16"></path>
+                  <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+                  <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+                  <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+                </svg>
+              </div>
+              <p class="award-rank">Multiple Awards</p>
+              <h3 class="card-title">District Level, Islamic Song Competitions</h3>
+              <p class="card-body">
+                Consistent top honors across multiple District Level Islamic Song competitions, demonstrating sustained vocal excellence.
+              </p>
+              <p class="card-meta-line">District Level · Islamic Song Competitions</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Skills -->
+      <section id="skills" class="section-divider reveal" aria-labelledby="skills-heading">
+        <div class="container">
+          <div class="section-header">
+            <p class="section-kicker">05. Vocal Mastery</p>
+            <h2 id="skills-heading" class="section-title">Skills</h2>
+            <p class="section-subtitle">
+              Islamic Song and Nasheed performance skills developed through years of competition and stage practice.
+            </p>
+          </div>
+
+          <div class="skills-grid" id="skills-container">
+            <div class="skill-row">
+              <div class="skill-header">
+                <span class="skill-name">Islamic Song &amp; Nasheed Singing</span>
+                <span class="skill-percent">95%</span>
+              </div>
+              <div class="skill-track" role="progressbar" aria-label="Islamic Song and Nasheed Singing proficiency" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
+                <div class="skill-fill" style="--skill-ratio: 0.95"></div>
+              </div>
+            </div>
+
+            <div class="skill-row">
+              <div class="skill-header">
+                <span class="skill-name">Hamd &amp; Naat Performance</span>
+                <span class="skill-percent">92%</span>
+              </div>
+              <div class="skill-track" role="progressbar" aria-label="Hamd and Naat Performance proficiency" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100">
+                <div class="skill-fill" style="--skill-ratio: 0.92"></div>
+              </div>
+            </div>
+
+            <div class="skill-row">
+              <div class="skill-header">
+                <span class="skill-name">Stage &amp; Competition Singing</span>
+                <span class="skill-percent">94%</span>
+              </div>
+              <div class="skill-track" role="progressbar" aria-label="Stage and Competition Singing proficiency" aria-valuenow="94" aria-valuemin="0" aria-valuemax="100">
+                <div class="skill-fill" style="--skill-ratio: 0.94"></div>
+              </div>
+            </div>
+
+            <div class="skill-row">
+              <div class="skill-header">
+                <span class="skill-name">Vocal Control &amp; Melody (Sur &amp; Taal)</span>
+                <span class="skill-percent">90%</span>
+              </div>
+              <div class="skill-track" role="progressbar" aria-label="Vocal Control and Melody proficiency" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                <div class="skill-fill" style="--skill-ratio: 0.90"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. Contact -->
+      <section id="contact" class="section-divider reveal" aria-labelledby="contact-heading">
+        <div class="container">
+          <div class="section-header">
+            <p class="section-kicker">06. Connect</p>
+            <h2 id="contact-heading" class="section-title">Contact</h2>
+            <p class="section-subtitle">
+              Reach out for software collaboration, CST academic networking, or Nasheed invitations.
+            </p>
+          </div>
+
+          <div class="contact-info-card">
+            <h3 class="card-title">Direct Channels</h3>
+            <p class="card-body" style="margin-bottom: 0;">
+              Always open to meaningful conversations around engineering, learning opportunities, and Islamic Nasheed events.
+            </p>
+
+            <div class="contact-methods">
+              <div class="contact-method">
+                <span class="contact-label">Email</span>
+                <div class="copy-row">
+                  <a href="mailto:mahmudullahmridul02@gmail.com" class="contact-link">
+                    mahmudullahmridul02@gmail.com
+                  </a>
+                  <button type="button" id="copy-email-btn" class="copy-btn">
+                    Copy Email
+                  </button>
+                </div>
+              </div>
+
+              <div class="contact-method">
+                <span class="contact-label">Facebook</span>
+                <a
+                  href="https://www.facebook.com/mahmudullahmridul01"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="contact-link"
+                >
+                  facebook.com/mahmudullahmridul01
+                </a>
+              </div>
+
+              <div class="contact-method">
+                <span class="contact-label">Education</span>
+                <span class="contact-link">
+                  Chattogram Govt Polytechnic Institute · Dept. of CST
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>&copy; 2026 Mahmudullah Mridul. All rights reserved.</span>
+        <div class="footer-links">
+          <a href="#top">Back to Top</a>
+          <a href="mailto:mahmudullahmridul02@gmail.com">Email</a>
+          <a href="https://www.facebook.com/mahmudullahmridul01" target="_blank" rel="noopener noreferrer">Facebook</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        'use strict';
+
+        // 1. Typing Animation
+        var roles = ['Aspiring Software Engineer', 'Islamic Nasheed Singer'];
+        var typingEl = document.getElementById('typing-text');
+        var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (typingEl && !prefersReducedMotion) {
+          var roleIndex = 0;
+          var charIndex = roles[0].length;
+          var isDeleting = false;
+
+          function tickTyping() {
+            var currentRole = roles[roleIndex];
+            if (isDeleting) {
+              charIndex -= 1;
+              typingEl.textContent = currentRole.slice(0, charIndex);
+            } else {
+              charIndex += 1;
+              typingEl.textContent = currentRole.slice(0, charIndex);
+            }
+
+            var delay = isDeleting ? 42 : 78;
+
+            if (!isDeleting && charIndex === currentRole.length) {
+              delay = 1700;
+              isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+              isDeleting = false;
+              roleIndex = (roleIndex + 1) % roles.length;
+              delay = 320;
+            }
+
+            window.setTimeout(tickTyping, delay);
+          }
+
+          window.setTimeout(function () {
+            isDeleting = true;
+            tickTyping();
+          }, 1600);
+        } else if (typingEl && prefersReducedMotion) {
+          typingEl.textContent = 'Aspiring Software Engineer | Islamic Nasheed Singer';
+        }
+
+        // 2. Mobile Navigation Drawer
+        var menuBtn = document.getElementById('mobile-menu-toggle');
+        var mobileDrawer = document.getElementById('mobile-drawer');
+
+        function setMobileMenu(open) {
+          if (!menuBtn || !mobileDrawer) return;
+          menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+          mobileDrawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+          mobileDrawer.classList.toggle('is-open', open);
+        }
+
+        if (menuBtn && mobileDrawer) {
+          menuBtn.addEventListener('click', function () {
+            var isOpen = mobileDrawer.classList.contains('is-open');
+            setMobileMenu(!isOpen);
+          });
+
+          var drawerLinks = mobileDrawer.querySelectorAll('a');
+          drawerLinks.forEach(function (link) {
+            link.addEventListener('click', function () {
+              setMobileMenu(false);
+            });
+          });
+        }
+
+        // 3. Scroll Reveal & Skill Progress Bars
+        var revealNodes = document.querySelectorAll('.reveal');
+        var skillFills = document.querySelectorAll('.skill-fill');
+
+        function revealAllImmediate() {
+          revealNodes.forEach(function (node) {
+            node.classList.add('is-visible');
+          });
+          skillFills.forEach(function (bar) {
+            bar.classList.add('is-animated');
+          });
+        }
+
+        if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+          revealAllImmediate();
+        } else {
+          document.documentElement.classList.add('reveal-ready');
+          var observer = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('is-visible');
+                  if (entry.target.id === 'skills') {
+                    skillFills.forEach(function (bar) {
+                      bar.classList.add('is-animated');
+                    });
+                  }
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.12 }
+          );
+
+          revealNodes.forEach(function (node) {
+            observer.observe(node);
+          });
+        }
+
+        // Active Nav Link Tracking
+        var navLinks = document.querySelectorAll('.desktop-nav .nav-link');
+        var trackedSections = ['about', 'journey', 'education', 'achievements', 'skills']
+          .map(function (id) {
+            return document.getElementById(id);
+          })
+          .filter(Boolean);
+
+        if ('IntersectionObserver' in window && trackedSections.length > 0) {
+          var navObserver = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  var activeId = entry.target.id;
+                  navLinks.forEach(function (link) {
+                    var matches = link.getAttribute('href') === '#' + activeId;
+                    if (matches) {
+                      link.setAttribute('aria-current', 'true');
+                    } else {
+                      link.removeAttribute('aria-current');
+                    }
+                  });
+                }
+              });
+            },
+            { rootMargin: '-35% 0px -55% 0px' }
+          );
+
+          trackedSections.forEach(function (sec) {
+            navObserver.observe(sec);
+          });
+        }
+
+        // 4. Copy Email Button
+        var copyBtn = document.getElementById('copy-email-btn');
+        if (copyBtn) {
+          function markCopied() {
+            copyBtn.textContent = 'Copied';
+            window.setTimeout(function () {
+              copyBtn.textContent = 'Copy Email';
+            }, 2000);
+          }
+
+          function fallbackCopy(text) {
+            try {
+              var temp = document.createElement('textarea');
+              temp.value = text;
+              temp.setAttribute('readonly', '');
+              temp.style.position = 'fixed';
+              temp.style.opacity = '0';
+              document.body.appendChild(temp);
+              temp.select();
+              document.execCommand('copy');
+              document.body.removeChild(temp);
+              markCopied();
+            } catch (err) {
+              copyBtn.textContent = 'mahmudullahmridul02@gmail.com';
+            }
+          }
+
+          copyBtn.addEventListener('click', function () {
+            var emailAddress = 'mahmudullahmridul02@gmail.com';
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard
+                .writeText(emailAddress)
+                .then(markCopied)
+                .catch(function () {
+                  fallbackCopy(emailAddress);
+                });
+            } else {
+              fallbackCopy(emailAddress);
+            }
+          });
+        }
+
+      })();
+    </script>
+  </body>
+</html>
